@@ -15,3 +15,13 @@ def line_namer(i):
     else:
         b = ["{}|".format(((i + 1) // 2) + 1)]
     return b
+
+def afficher_damier_ascii(grille):
+    grille = {"joueurs": [{"nom": "idul", "murs":7, "pos": [5, 5]},
+    {"nom":"automate", "murs":3, "pos": [8, 6]}
+    ],
+    "murs": {
+        "horizontaux": [[4, 4], [2, 6], [3, 8], [5, 8], [7,8]],
+        "verticaux": [[6, 2], [4, 4], [2, 6], [7, 5], [7,7]]
+        }
+    }
