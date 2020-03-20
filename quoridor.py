@@ -7,3 +7,11 @@ def analyser_commande():
     parser.add_argument('idul', metavar='idul', type = str, help = 'IDUL du joueur')
     # parser.add_argument('bar', type = str, help = 'Argument positionnel de la sous-commande acheter')
     return parser.parse_args()
+
+def line_namer(i):
+    b = []
+    if (((i + 1) // 2) + 1) < 10:
+        b = ["{} |".format(((i + 1) // 2) + 1)]
+    else:
+        b = ["{}|".format(((i + 1) // 2) + 1)]
+    return b
