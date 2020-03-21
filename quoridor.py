@@ -53,3 +53,15 @@ def afficher_damier_ascii(grille):
             tableau += ['|\n']
     tableau += "--|" + ('-' * espace_horiz) +'\n'
     tableau += (' ' * 2) + '| '
+    for i in range (1, position_tableau):
+        tableau += str(i) + (' ' * 3)
+    tableau += "{}\n".format(position_tableau)
+    for num, joueur in enumerate(grille["joueurs"]):
+        #pour mettre nom du joueur à la legende du tableau
+        legende += "{}={} ".format((num +1), joueur['nom du joueur'])
+        # position [x, y] du joueur en question
+        position = joueur["posi"]
+        # vérif position joueur
+        if ((0 > position[0] > position_tableau)or
+                (0 > position[1] > position_tableau)):
+            raise IndexError ("Adresse du joueur invalide!")
