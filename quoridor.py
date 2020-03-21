@@ -30,3 +30,26 @@ def afficher_damier_ascii(grille):
         "verticaux": [[6, 2], [4, 4], [2, 6], [7, 5], [7,7]]
         }
     }
+
+    position_tableau = 9
+    espace_horiz = ((position_tableau * 4) - 1)
+    # tableaux d'équivalences entre les adresses du jeu et notre tableau
+    posx_jeu = range(1, (position_tableau * 4), 4)
+    posy_jeu = range(((position_tableau -1 ) * 2), -1, -2)
+    # Le tableau de jeu est crée
+    # place holder ou on ajoute tous les joueurs (pas plus que 2 joueurs)
+    legende = "legende: "
+    tableau = [legende]
+    # tableau de jeu
+    for i in reversed(range((position_tableau * 2) - 1)):
+        if (i % 2) == 0:
+            tableau += line_namer(i)
+            tableau += [' ', '.']
+            tableau += ([' ', ' ', ' ', '.'] * (position_tableau - 1))
+            tableau += [' ', '|\n']
+        else:
+            tableau += ["  |"]
+            tableau += ([' '] * espace_horiz)
+            tableau += ['|\n']
+    tableau += "--|" + ('-' * espace_horiz) +'\n'
+    tableau += (' ' * 2) + '| '
