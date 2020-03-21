@@ -79,3 +79,23 @@ def afficher_damier_ascii(grille):
         if ((1 > murhoriz[0] > (position_tableau -1)) or
                 (2 > murhoriz[1] > position_tableau)):
             raise IndexError("Position du mur horizontal invalide!")
+        indice = ((posx_jeu[(murhoriz[0] - 1)] -1) +
+                   ((posy_jeu[(murhoriz[1] - 1)] + 1) * espace_horiz))
+        decallage = ((((indice + 1) // espace_horiz) * 2) + 2)
+        indice += decallage
+        # itération pour les 5 murs
+        for i in range(7):
+            tableau [(indice + i)] = '-'
+    # mur verticaux
+    for murverti in grille ["murs"]["verticaux"]:
+        if (2 > murverti[0] > position_tableau) or (1 > murverti[1] > position_tableau):
+            raise IndexError("Position du mur vertical invalide!")
+        indice = ((posx_jeu[(murverti[0] - 1)] - 2) +
+                   ((posy_jeu[murverti[1] - 1]) * espace_horiz))
+        decallage = ((((indice + 1) // espace_horiz) * 2) + 2)
+        indice += decallage
+        # itérer pour placer 3 murs
+        for i in range(3):
+            tableau[(indice - (i * (espace_horiz + 2)))] = '|'
+    # afficher jeu sous forme d'une chaine de caractère
+    print(''.join(tableau))
