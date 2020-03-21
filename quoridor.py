@@ -65,3 +65,17 @@ def afficher_damier_ascii(grille):
         if ((0 > position[0] > position_tableau)or
                 (0 > position[1] > position_tableau)):
             raise IndexError ("Adresse du joueur invalide!")
+    # décallage relatif
+    indice = (posx_jeu[(position[0]-1)]+
+              (posy_jeu[(position[1] - 1)] * espace_horiz))
+    decallage= ((((indice + 1) // espace_horiz) * 2)+2)
+    indice += decallage
+    # insérer personnage dans tableau
+    tableau[indice] = str(num + 1)
+    # compléter legende tableau
+    tableau[0] = legende + '\n' + (' ' * 3) + ('-' * espace_horiz) + '\n'
+    #mur horiz
+    for murhoriz in grille["murs"]["horizontaux"]:
+        if ((1 > murhoriz[0] > (position_tableau -1)) or
+                (2 > murhoriz[1] > position_tableau)):
+            raise IndexError("Position du mur horizontal invalide!")
